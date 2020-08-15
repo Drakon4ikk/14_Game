@@ -37,7 +37,8 @@ function addPlatforms() {
   platforms.create(50, 300, 'platform');
   platforms.create(250, 250, 'platform2');
   platforms.create(650, 300, 'platform');
-  platforms.create(500, 150, 'platform');
+  platforms.create(350, 140, 'platform');
+  platforms.create(700, 180, 'platform');
   platforms.create(300, 450, 'platform2');
   platforms.create(450, 350, 'platform2');
   platforms.create(0, 100, 'platform2');
@@ -112,7 +113,7 @@ window.onload = function () {
     player.anchor.setTo(0.5, 1);
     game.physics.arcade.enable(player);
     player.body.collideWorldBounds = true;
-    player.body.gravity.y = 500;
+    player.body.gravity.y = 4000;
 
     addItems();
     addPlatforms();
@@ -135,13 +136,13 @@ window.onload = function () {
     // нажата левая клавиша курсора?
     if (cursors.left.isDown) {
       player.animations.play('walk', 10, true);
-      player.body.velocity.x = -300;
+      player.body.velocity.x = -600;
       player.scale.x = - 1  ;
     }
     // нажата правая клавиша курсора?
     else if (cursors.right.isDown) {
       player.animations.play('walk', 10, true);
-      player.body.velocity.x = 300;
+      player.body.velocity.x = 600;
       player.scale.x = 1;
     }
     // игрок не двигается
@@ -150,7 +151,7 @@ window.onload = function () {
     }
     
     if (jumpButton.isDown && (player.body.onFloor() || player.body.touching.down)) {
-      player.body.velocity.y = -400;
+      player.body.velocity.y = -1000;
     }
     // когда игрок выигрывает игру
     if (won) {
